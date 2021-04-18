@@ -49,6 +49,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  String text = "";
   NumPad numPad= NumPad(false);
 
   void _incrementCounter() {
@@ -97,17 +98,14 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
+              '$text',
               style: Theme.of(context).textTheme.headline4,
             ),
             ElevatedButton(onPressed: (){numPad.onOff();}, child: Text("On-Off")),
-            ElevatedButton(onPressed: (){print(numPad.one());}, child: Text("1")),
-            ElevatedButton(onPressed: (){print(numPad.two());}, child: Text("2")),
-            ElevatedButton(onPressed: (){print(numPad.three());}, child: Text("3")),
-            ElevatedButton(onPressed: (){print(numPad.four());}, child: Text("4")),
+            ElevatedButton(onPressed: (){setState(() {text = numPad.one();});}, child: Text("1")),
+            ElevatedButton(onPressed: (){setState(() {text = numPad.two();});}, child: Text("2")),
+            ElevatedButton(onPressed: (){setState(() {text = numPad.three();});}, child: Text("3")),
+            ElevatedButton(onPressed: (){setState(() {text = numPad.four();});}, child: Text("4")),
           ],
         ),
       ),
