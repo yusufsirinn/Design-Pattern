@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'Num-Pad/num-pad.dart';
-
 void main() {
   runApp(MyApp());
 }
@@ -50,7 +48,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   String text = "";
-  NumPad numPad= NumPad(false);
 
   void _incrementCounter() {
     setState(() {
@@ -98,14 +95,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              '$text',
+              '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            ElevatedButton(onPressed: (){numPad.onOff();}, child: Text("On-Off")),
-            ElevatedButton(onPressed: (){setState(() {text = numPad.one();});}, child: Text("1")),
-            ElevatedButton(onPressed: (){setState(() {text = numPad.two();});}, child: Text("2")),
-            ElevatedButton(onPressed: (){setState(() {text = numPad.three();});}, child: Text("3")),
-            ElevatedButton(onPressed: (){setState(() {text = numPad.four();});}, child: Text("4")),
           ],
         ),
       ),
